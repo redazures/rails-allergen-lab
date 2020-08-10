@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_08_10_052032) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.boolean "allergies"
     t.string "allergic_to"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,7 +1,8 @@
 <h1>This is <%=@user.name%>'s page<h1>
 <p>These are his author recipes:</p>
-<%@user.recipes do |r|%>
-    <%=r%>
+<%@user.recipes.each do|r|%>
+    <ul>
+    <li><%=r.name%></li>
+    </ul>
 <%end%>
-
 <%= link_to 'Delete User', @user, method: :delete, data:{confirm: 'delete user?'}%>

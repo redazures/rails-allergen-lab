@@ -12,7 +12,11 @@ User.destroy_all
 Recipe.destroy_all
 
 20.times do
-    User.create(name:Faker::Games::Dota.hero, email:Faker::Appliance)
+    User.create(name:Faker::Games::Dota.hero, email:Faker::Appliance, allergic_to:"")
+end
+
+5.times do
+    User.create(name:Faker::Games::Dota.hero, email:Faker::Appliance, allergic_to:"peanut")
 end
 
 60.times do
@@ -21,6 +25,10 @@ end
 
 20.times do
     Ingredient.create(name:Faker::Food.ingredient, recipe_id:Recipe.all.sample.id)
+end
+
+5.times do
+    Ingredient.create(name:"peanut", recipe_id:Recipe.all.sample.id)
 end
 
 puts "I am done for dinner"
