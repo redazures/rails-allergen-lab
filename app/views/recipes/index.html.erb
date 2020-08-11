@@ -1,5 +1,18 @@
 <h1>Recipes</h1>
 
+<%top=Recipe.all.max_by{|x|x.ing_count}.ingredients.count%>
+<h2><%="Our recipes max out at #{top} ingredients"%></h2>
+<% if params[:search] != nil%>
+    <%="You have previously search for recipes with #{params[:search]} incredient"%></p>
+<% end %>
+
+<h2>Search</h2>
+
+<%=form_tag(recipes_path, method: :get) do%>
+    <%=number_field_tag(:search,params[:search], :in => 1..top)%>
+    <%=submit_tag ('Search')%>
+<%end%>
+
 <%@recipes.each do |r|%>
     <p><%=r.name%></p>
 <%end%>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # put "/recipes/ingredientsearch", to:'recipes#search', as: 'recipe_search'
   resources :ingredients
   resources :recipes
   resources :users
